@@ -8,12 +8,16 @@ function start() {
     let happyCat = document.getElementById("happyCat");
     let yesResponse = document.getElementById("yesResponse");
     let backgroundImg = document.getElementById("backgroundIMG");
+
+    let baseYesSize = 30;
    
     noButton.addEventListener('mouseover', function() {
         picture.style.visibility = 'visible';
         backgroundImg.style.visibility = "hidden";
         noButton.style.top = Math.floor(Math.random()*80) + '%'
         noButton.style.left = Math.floor(Math.random()*80) + '%'
+        baseYesSize += 10;
+        yesButton.style.fontSize =  `${baseYesSize}px`
     })
    
     yesButton.addEventListener('click', function() {
