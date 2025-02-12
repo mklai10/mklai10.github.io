@@ -1,5 +1,6 @@
 body {
     align-content: center;
+    overflow: hidden;
 }
 
 .text {
@@ -28,8 +29,6 @@ body {
 
 .yesButton {
     position: absolute;
-    top: 60%;
-    left: 30%;
     font-size: 30px;
     text-shadow:
                 0 0 5px red,
@@ -39,8 +38,24 @@ body {
                 0 0 80px red;
 }
 
+.yesButtonContainer {
+    position: fixed;
+    display: flex;
+    width: 0px;
+    height: 0px;
+    justify-content: center;
+    align-items: center;
+    top: 60%;
+    left: 30%;
+}
+
 .noButton {
     position: absolute;
+    display: flex;
+    width: 0px;
+    height: 0px;
+    justify-content: center;
+    align-items: center;
     top: 60%;
     left: 70%;
     font-size: 30px;

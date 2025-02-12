@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <title> Valentines</title>
         <link rel="stylesheet" type="text/css" href="styling.css">
     </head>
-    <body>
+    <body onmousemove="moveNoButton(event)">
         <script src="./logic.js" type="module"></script>
+        <script src="noButton.js" ></script>
         <div class="imageContainer">
             <img src="./images/cat.jpeg" class="noCat" id="cat">
             
@@ -18,7 +20,10 @@
         </div>
         
         <div class="text" id="question">Will You Be My Valentine?</div>
-        <div class="yesButton">Yes</div>
+        <div class="yesButtonContainer">
+            <div class="yesButton">Yes</div>
+        </div>
+        
         <div class="noButton">No</div>
 
         <div class="yesResponse" id="yesResponse">I Always Knew You Loved Me!</div>

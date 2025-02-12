@@ -10,14 +10,23 @@ function start() {
     let backgroundImg = document.getElementById("backgroundIMG");
 
     let baseYesSize = 30;
+    let baseNoSize = 30;
    
     noButton.addEventListener('mouseover', function() {
         picture.style.visibility = 'visible';
         backgroundImg.style.visibility = "hidden";
-        noButton.style.top = Math.floor(Math.random()*80) + '%'
-        noButton.style.left = Math.floor(Math.random()*80) + '%'
-        baseYesSize += 10;
+        // noButton.style.top = Math.floor(Math.random()*80) + '%'
+        // noButton.style.left = Math.floor(Math.random()*80) + '%'
+        // baseYesSize += 100;
         yesButton.style.fontSize =  `${baseYesSize}px`
+    })
+
+    noButton.addEventListener('mouseover', function() {
+        noButton.style.fontSize = `${baseNoSize * 1.2}px`
+    })
+
+    noButton.addEventListener('mouseout', function() {
+        noButton.style.fontSize = `${baseNoSize}px`
     })
    
     yesButton.addEventListener('click', function() {
@@ -27,5 +36,13 @@ function start() {
         happyCat.style.visibility = "visible";
         yesResponse.style.visibility = "visible";
         backgroundImg.style.visibility = "hidden";
+    })
+
+    yesButton.addEventListener('mouseover', function() {
+        yesButton.style.fontSize = `${baseYesSize * 1.2}px`
+    })
+
+    yesButton.addEventListener('mouseout', function() {
+        yesButton.style.fontSize = `${baseYesSize}px`
     })
 }
