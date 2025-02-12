@@ -28,76 +28,89 @@ function moveNoButton(event) {
         // noButton.style.top = `${parseInt(currentTop) + (diffY > 0 ? (-1 / diffY) : (1 / diffY))}px`;
 
         let onWall = false;
+        let rightVelocity = 1;
+        let leftVelocity = 1;
+        let upVelocity = 1;
+        let downVelocity = 1;
         
         if (rect.x >= screen.availWidth - 50) {
-            onWall = true;
-            onRightWall(event, noButton, currentTop, currentLeft);
+            // onWall = true;
+            // onRightWall(event, noButton, currentTop, currentLeft);
+            rightVelocity = 0;
         } 
         
         if (rect.x <= 50) {
-            onWall = true;
-            onLeftWall(event, noButton, currentTop, currentLeft);
+            // onWall = true;
+            // onLeftWall(event, noButton, currentTop, currentLeft);
+            leftVelocity = 0;
         } 
         
         if (rect.y >= screen.availHeight - 120) {
-            onWall = true;
-            onBottomWall(event, noButton, currentTop, currentLeft);
+            // onWall = true;
+            // onBottomWall(event, noButton, currentTop, currentLeft);
+            downVelocity = 0;
         }  
         
         if (rect.y <= 50) {
-            onWall = true;
-            onTopWall(event, noButton, currentTop, currentLeft);
+            // onWall = true;
+            // onTopWall(event, noButton, currentTop, currentLeft);
+            upVelocity = 0;
         } 
         
-        if (!onWall) {
-            noButton.style.left = `${parseInt(currentLeft) - (diffX / 5)}px`;
-            noButton.style.top = `${parseInt(currentTop) - (diffY / 5)}px`;
-        }
+        // if (!onWall) {
+        //     noButton.style.left = `${parseInt(currentLeft) - (diffX / 5)}px`;
+        //     noButton.style.top = `${parseInt(currentTop) - (diffY / 5)}px`;
+        // }
+
+        console.log(rightVelocity);
+
+        noButton.style.left = `${parseInt(currentLeft) - (diffX > 0 ? (diffX * leftVelocity / 5) : (diffX * rightVelocity / 5))}px`;
+        noButton.style.top = `${parseInt(currentTop) - (diffY > 0 ? (diffY * upVelocity / 5) : (diffY * downVelocity / 5))}px`;
     }
 }
 
-function onRightWall(event, button, top, left) {
-    let rect = button.getBoundingClientRect();
-    let diffX = event.x - rect.x;
-    let diffY = event.y - rect.y;
+// function onRightWall(event, button, top, left) {
+//     let rect = button.getBoundingClientRect();
+//     let diffX = event.x - rect.x;
+//     let diffY = event.y - rect.y;
 
-    console.log(diffX)
-    button.style.top = `${parseInt(top) - (diffY / 5)}px`;
-    if (diffX > 0) {
-        button.style.left = `${parseInt(left) - (diffX / 5)}px`;
-    }
-}
+//     console.log(diffX)
+//     button.style.top = `${parseInt(top) - (diffY / 5)}px`;
+//     if (diffX > 0) {
+//         button.style.left = `${parseInt(left) - (diffX / 5)}px`;
+//     }
+// }
 
-function onLeftWall(event, button, top, left) {
-    let rect = button.getBoundingClientRect();
-    let diffX = event.x - rect.x;
-    let diffY = event.y - rect.y;
+// function onLeftWall(event, button, top, left) {
+//     let rect = button.getBoundingClientRect();
+//     let diffX = event.x - rect.x;
+//     let diffY = event.y - rect.y;
 
-    button.style.top = `${parseInt(top) - (diffY / 5)}px`;
-    if (diffX < 0) {
-        button.style.left = `${parseInt(left) - (diffX / 5)}px`;
-    }
-}
+//     button.style.top = `${parseInt(top) - (diffY / 5)}px`;
+//     if (diffX < 0) {
+//         button.style.left = `${parseInt(left) - (diffX / 5)}px`;
+//     }
+// }
 
-function onTopWall(event, button, top, left) {
-    let rect = button.getBoundingClientRect();
-    let diffX = event.x - rect.x;
-    let diffY = event.y - rect.y;
+// function onTopWall(event, button, top, left) {
+//     let rect = button.getBoundingClientRect();
+//     let diffX = event.x - rect.x;
+//     let diffY = event.y - rect.y;
 
-    button.style.left = `${parseInt(left) - (diffX / 5)}px`;
-    if (diffY < 0) {
-        button.style.top = `${parseInt(top) - (diffY / 5)}px`;
-    }
-}
+//     button.style.left = `${parseInt(left) - (diffX / 5)}px`;
+//     if (diffY < 0) {
+//         button.style.top = `${parseInt(top) - (diffY / 5)}px`;
+//     }
+// }
 
-function onBottomWall(event, button, top, left) {
-    let rect = button.getBoundingClientRect();
-    let diffX = event.x - rect.x;
-    let diffY = event.y - rect.y;
+// function onBottomWall(event, button, top, left) {
+//     let rect = button.getBoundingClientRect();
+//     let diffX = event.x - rect.x;
+//     let diffY = event.y - rect.y;
 
-    button.style.left = `${parseInt(left) - (diffX / 5)}px`;
-    if (diffY > 0) {
-        button.style.top = `${parseInt(top) - (diffY / 5)}px`;
-    }
-}
+//     button.style.left = `${parseInt(left) - (diffX / 5)}px`;
+//     if (diffY > 0) {
+//         button.style.top = `${parseInt(top) - (diffY / 5)}px`;
+//     }
+// }
 
